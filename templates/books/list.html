@@ -1,0 +1,36 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+<!--<ul>-->
+    <!--{% for book in all_books %}-->
+        <!--<li>Name of the Book: {{ book.title }}</li>-->
+        <!--<li>{{ book.description }}</li>-->
+        <!--<li>Created By: {{book.author}} </li>-->
+    <!--{% endfor %}-->
+
+<!--</ul>-->
+    <center>
+<table class="text-center mt-5" border="1">
+    <h2 class="text-center" style="color:maroon">Books from the database!!</h2>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Description</th>
+        <th>Published on</th>
+    </tr>
+    {% for book in all_books %}
+    <tr>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.description }}</td>
+        <td>{{ book.pub_date }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</center>
+</div>
+{% endblock %}

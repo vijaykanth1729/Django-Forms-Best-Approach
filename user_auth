@@ -1,0 +1,43 @@
+there is a builtn in User model provided by django which has some attributes we can use them in
+our own applications..
+User models is inherited--> from django.contrib.auth.models import User
+User models has-->Username, password, email, first_name, last_name..
+
+
+form modifications:
+----------------------
+install an external library that supports form modfification in a better way.
+#   pip install django-crispy-forms
+we need to make some changes in settings.py file..
+add crispy_forms in installed apps section
+and also add --> CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+Login Functionality:
+----------------------
+will use Django authentication system to handle all the authentication part..
+
+we need to import  --> from django.contrib.auth import authenticate, login, logout..
+
+to create a authentication system will create a new app called as accounts..
+and will include all the routes, urls, views in that app..
+
+Logout functionality:
+------------------------
+logout is imported from django.contrib.auth  import logout
+
+will create a function and uses a logout functionality with passing the request as its parameter..
+so it can able to logout the user of that session..
+
+then we need to modify our urls.py file and views.py file to work the logout functionality..
+
+Register Functionality:
+------------------------
+instead of using plain html forms will go with django builtin forms to handle the registration...
+we can register a user by providing a username and a password for now, later will add other fields..
+
+
+once we create a form in forms.py file we need to add  a url route to handle the forms, and will create a view function
+to handle the backend logic..
+
+
