@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'books',
-    'accounts',
+    'accounts.apps.AccountsConfig',
     ### external apps..
     'crispy_forms',
     'axes',
@@ -57,16 +57,19 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django_session_timeout.middleware.SessionTimeoutMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'axes.middleware.AxesMiddleware',
+    'accounts.middleware.OneUserPerSessionMiddleware',
 ]
 
 AXES_ONLY_USER_FAILURES = True
 AXES_FAILURE_LIMIT = 5
+SESSION_EXPIRE_SECONDS = 300  #seconds..(5 minutes.)
 
 ROOT_URLCONF = 'mysite.urls'
 
