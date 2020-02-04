@@ -21,9 +21,24 @@
     {% endblock %}
 
 </div>
+
 <script type="text/javascript">
-    document.addEventListener('contextmenu', event => event.preventDefault());
+document.addEventListener("contextmenu", function (e) {
+  e.preventDefault();
+  if(options.enableAlert) {
+    alert(options.alertText);
+  }
+});
+
+var options = {
+  enableAlert: true, // Set this false to deactivate alert
+  alertText: "Right click is disabled on this site for security reasons." // Customize this to change alert text
+}
 </script>
+
+<!--<script type="text/javascript">-->
+    <!--document.addEventListener('contextmenu', event => event.preventDefault() );-->
+<!--</script>-->
 
 
 <!-- Optional JavaScript -->
